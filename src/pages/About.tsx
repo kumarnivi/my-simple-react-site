@@ -7,67 +7,62 @@ import { users } from "@/data/users";
 
 const About = () => {
   return (
-    <div className="py-12 bg-gradient-hero min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">Meet Our Developers</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Get to know the talented individuals behind amazing projects. Each developer brings 
-            unique skills and perspectives to the tech community.
+    <div className="py-12 bg-background min-h-screen">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold mb-4">Our Team</h1>
+          <p className="text-muted-foreground">
+            Meet our developers
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {users.map((user) => (
-            <Card key={user.id} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <CardHeader className="text-center">
-                <div className="mx-auto mb-4">
-                  <img
-                    src={user.avatar}
-                    alt={user.name}
-                    className="w-24 h-24 rounded-full object-cover border-4 border-primary/20"
-                  />
-                </div>
-                <CardTitle className="text-xl">{user.name}</CardTitle>
-                <CardDescription className="text-primary font-medium">
-                  {user.role}
-                </CardDescription>
+            <Card key={user.id} className="border border-border">
+              <CardHeader className="text-center pb-4">
+                <img
+                  src={user.avatar}
+                  alt={user.name}
+                  className="w-20 h-20 rounded-full object-cover mx-auto mb-3 border-2 border-border"
+                />
+                <CardTitle className="text-lg">{user.name}</CardTitle>
+                <CardDescription>{user.role}</CardDescription>
               </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4 line-clamp-3">
+              <CardContent className="pt-0">
+                <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
                   {user.bio}
                 </p>
                 
                 <div className="mb-4">
                   <p className="text-sm font-medium mb-2">Skills:</p>
                   <div className="flex flex-wrap gap-1">
-                    {user.skills.slice(0, 4).map((skill) => (
+                    {user.skills.slice(0, 3).map((skill) => (
                       <Badge key={skill} variant="secondary" className="text-xs">
                         {skill}
                       </Badge>
                     ))}
-                    {user.skills.length > 4 && (
+                    {user.skills.length > 3 && (
                       <Badge variant="outline" className="text-xs">
-                        +{user.skills.length - 4} more
+                        +{user.skills.length - 3}
                       </Badge>
                     )}
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between">
-                  <div className="flex space-x-2">
-                    <Button size="sm" variant="ghost" className="p-2">
+                <div className="flex justify-between items-center">
+                  <div className="flex space-x-1">
+                    <Button size="sm" variant="ghost" className="h-8 w-8 p-0">
                       <Github className="h-4 w-4" />
                     </Button>
-                    <Button size="sm" variant="ghost" className="p-2">
+                    <Button size="sm" variant="ghost" className="h-8 w-8 p-0">
                       <Linkedin className="h-4 w-4" />
                     </Button>
-                    <Button size="sm" variant="ghost" className="p-2">
+                    <Button size="sm" variant="ghost" className="h-8 w-8 p-0">
                       <Mail className="h-4 w-4" />
                     </Button>
                   </div>
                   <Link to={`/user/${user.id}`}>
-                    <Button size="sm" className="group">
+                    <Button size="sm">
                       View Profile
                     </Button>
                   </Link>

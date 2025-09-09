@@ -1,40 +1,29 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Users, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImage from "@/assets/hero-image.jpg";
+import { Card, CardTitle } from "@/components/ui/card";
 
 const Home = () => {
   return (
-    <div className="flex flex-col">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-hero">
-        <div className="absolute inset-0 overflow-hidden">
-          <img
-            src={heroImage}
-            alt="Modern workspace with code"
-            className="w-full h-full object-cover opacity-10"
-          />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-6xl font-bold mb-6">
-            Welcome to{" "}
-            <span className="bg-gradient-primary bg-clip-text text-transparent">
-              DevPortfolio
-            </span>
+      <section className="py-20 bg-primary text-primary-foreground">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h1 className="text-4xl font-bold mb-4">
+            Welcome to DevPortfolio
           </h1>
-          <p className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Discover amazing developers, explore their projects, and connect with talented individuals 
-            who are shaping the future of technology.
+          <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
+            Discover amazing developers, explore their projects, and connect with the tech community.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/about">
-              <Button size="lg" className="group">
+              <Button size="lg" variant="secondary">
                 Explore Developers
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
             <Link to="/contact">
-              <Button variant="outline" size="lg">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
                 Get In Touch
               </Button>
             </Link>
@@ -43,45 +32,45 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-24 bg-gradient-secondary">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Why Choose DevPortfolio?</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              A modern platform showcasing the best developers and their innovative projects.
+      <section className="py-16 bg-background">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Why Choose Our Platform?</h2>
+            <p className="text-muted-foreground">
+              A modern platform showcasing the best developers and their projects.
             </p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-8 rounded-lg bg-card shadow-md hover:shadow-lg transition-shadow">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-lg mb-6">
-                <Code className="h-8 w-8 text-white" />
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Card className="text-center p-6">
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Code className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold mb-4">Quality Projects</h3>
-              <p className="text-muted-foreground">
-                Explore high-quality projects built by experienced developers using modern technologies.
+              <CardTitle className="text-lg mb-2">Quality Projects</CardTitle>
+              <p className="text-sm text-muted-foreground">
+                Explore high-quality projects built by experienced developers.
               </p>
-            </div>
+            </Card>
 
-            <div className="text-center p-8 rounded-lg bg-card shadow-md hover:shadow-lg transition-shadow">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-lg mb-6">
-                <Users className="h-8 w-8 text-white" />
+            <Card className="text-center p-6">
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold mb-4">Talented Developers</h3>
-              <p className="text-muted-foreground">
-                Connect with skilled developers from various backgrounds and specializations.
+              <CardTitle className="text-lg mb-2">Talented Developers</CardTitle>
+              <p className="text-sm text-muted-foreground">
+                Connect with skilled developers from various backgrounds.
               </p>
-            </div>
+            </Card>
 
-            <div className="text-center p-8 rounded-lg bg-card shadow-md hover:shadow-lg transition-shadow">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-lg mb-6">
-                <Zap className="h-8 w-8 text-white" />
+            <Card className="text-center p-6">
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Zap className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold mb-4">Modern Technology</h3>
-              <p className="text-muted-foreground">
-                Discover projects built with cutting-edge technologies and best practices.
+              <CardTitle className="text-lg mb-2">Modern Technology</CardTitle>
+              <p className="text-sm text-muted-foreground">
+                Discover projects built with cutting-edge technologies.
               </p>
-            </div>
+            </Card>
           </div>
         </div>
       </section>
